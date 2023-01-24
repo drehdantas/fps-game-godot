@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Main/Geometry/Floor.tscn" type="PackedScene" id=2]
@@ -6,9 +6,46 @@
 [ext_resource path="res://Levels/Main/L_Main.gd" type="Script" id=4]
 [ext_resource path="res://Levels/Main/Geometry/Wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/Main/Geometry/Cube.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/Boss.tscn" type="PackedScene" id=8]
 
 [node name="L_Main" type="Spatial"]
 script = ExtResource( 4 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11264, 2.40598, -43.0465 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8955, 2.40598, -43.0465 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11264, 2.40598, -45.3517 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95483, 2.40598, -45.3517 )
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 2.40598, -47.91 )
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0943, 2.40598, -46.5029 )
+
+[node name="Boss" parent="Enemies" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68088, 17.3352, -87.6728 )
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02095, 2.40598, -56.5757 )
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11264, 2.40598, -50.9723 )
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8955, 2.40598, -50.9723 )
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11264, 2.40598, -53.2775 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )

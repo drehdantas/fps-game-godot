@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Weapons/pistol.gd" type="Script" id=1]
+[ext_resource path="res://Models/Weapons/pistol.obj" type="ArrayMesh" id=2]
+
+[node name="pistol" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.918 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+script = ExtResource( 1 )
+
+[node name="muzzle" type="Spatial" parent="."]

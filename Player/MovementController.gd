@@ -18,7 +18,10 @@ onready var floor_max_angle: float = deg2rad(45.0)
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 onready var gravity = (ProjectSettings.get_setting("physics/3d/default_gravity") 
 		* gravity_multiplier)
+		
 
+var curHp : int = 10
+var maxHp : int = 10
 
 # Called every physics tick. 'delta' is constant
 func _physics_process(delta) -> void:
@@ -87,3 +90,16 @@ func accelerate(delta: float) -> void:
 	
 	velocity.x = temp_vel.x
 	velocity.z = temp_vel.z
+	
+# called when an enemy damages us
+func take_damage (damage):
+	curHp -= damage
+#	ui.update_health_bar(curHp, maxHp)
+	if curHp <= 0:
+		die()
+	pass
+	
+# called when our health reaches 0	
+func die ():
+	get_tree().reload_current_scene()
+	pass
