@@ -1,8 +1,64 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Head.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/pistol.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Crosshair.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "AssaultFire"
+length = 0.08
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera/pistol:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.2, -0.314, -0.6 ), Vector3( 0.2, -0.314, -0.524 ), Vector3( 0.2, -0.314, -0.6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera/pistol:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.03, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -3.37, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera/pistol:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.2, -0.314, -0.6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera/pistol:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ) ]
+}
 
 [node name="Head" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0 )
@@ -21,7 +77,7 @@ enabled = true
 cast_to = Vector3( 0, 0, -200 )
 
 [node name="pistol" parent="Camera" instance=ExtResource( 2 )]
-transform = Transform( -10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0.2, -0.314, -0.6 )
+transform = Transform( -10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0.2, -0.314, -0.6 )
 skeleton = NodePath("")
 
 [node name="CrossHair" type="TextureRect" parent="Camera"]
@@ -37,3 +93,7 @@ texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/AssaultFire = SubResource( 1 )
+anims/RESET = SubResource( 2 )

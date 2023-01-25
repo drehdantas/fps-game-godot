@@ -103,3 +103,9 @@ func take_damage (damage):
 func die ():
 	get_tree().reload_current_scene()
 	pass
+	
+func add_ammo (amount):
+	print("REALOAD")
+#	ammo += amount
+#	ui.update_ammo_text(ammo)
+	pass

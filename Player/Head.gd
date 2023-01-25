@@ -12,6 +12,7 @@ var rot := Vector3()
 var ammo : int = 666
 onready var bulletPistol = load("res://Weapons/BulletPistol.tscn")
 onready var muzzle : Spatial = get_node("Camera/Muzzle")
+onready var anim_player = $AnimationPlayer
 
 
 func _process(delta):
@@ -53,11 +54,17 @@ func shoot ():
 #		bullet = bulletMachinegun.instance()
 #	elif(current_weapon==3):
 	bullet = bulletPistol.instance()
+	anim_player.play("AssaultFire")
 	
 	#spawn a new bullet and move it 	
 	get_node("/root/L_Main").add_child(bullet)
 	bullet.set_global_transform(muzzle.get_global_transform())
 	ammo -= 1
 
+#	ui.update_ammo_text(ammo)
+	pass
+	
+func add_ammo (amount):
+	ammo += amount
 #	ui.update_ammo_text(ammo)
 	pass
